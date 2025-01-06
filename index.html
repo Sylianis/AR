@@ -11,18 +11,22 @@
   <a-scene embedded arjs>
     <!-- Marqueur AR -->
     <a-marker preset="hiro">
-      <!-- Vidéo intégrée -->
-      <a-video src="#my-video" width="3" height="1.5" position="0 0.75 0"></a-video>
+      <!-- Iframe pour afficher la vidéo YouTube -->
+      <a-entity geometry="primitive: plane; height: 2; width: 3"
+                material="shader: html; target: #video-frame"
+                position="0 1 0"></a-entity>
     </a-marker>
 
     <!-- Caméra -->
     <a-entity camera></a-entity>
   </a-scene>
 
-  <!-- Vidéo source -->
-  <video id="my-video" autoplay loop muted="true" playsinline>
-    <source src="https://raw.githubusercontent.com/Sylianis/geneomics/refs/heads/main/videos/security_cam.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <!-- Iframe caché pour la vidéo YouTube -->
+  <div id="video-frame" style="display: none;">
+    <iframe src="https://www.youtube.com/embed/-VR-qfq4p3s?autoplay=1&mute=1"
+            width="560" height="315" frameborder="0"
+            allow="autoplay; encrypted-media" allowfullscreen>
+    </iframe>
+  </div>
 </body>
 </html>
