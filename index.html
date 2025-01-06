@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Vidéo avec A-Frame</title>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
+</head>
+<body style="margin: 0; overflow: hidden;">
+  <a-scene embedded arjs>
+    <!-- Marqueur AR -->
+    <a-marker preset="hiro">
+      <!-- Vidéo intégrée -->
+      <a-video src="#my-video" width="3" height="1.5" position="0 0.75 0"></a-video>
+    </a-marker>
+
+    <!-- Caméra -->
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <!-- Vidéo source -->
+  <video id="my-video" autoplay loop muted="true" playsinline>
+    <source src="https://raw.githubusercontent.com/Sylianis/geneomics/refs/heads/main/videos/security_cam.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</body>
+</html>
